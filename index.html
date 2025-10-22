@@ -1,1 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Touch to Change Color</title>
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      background-color: #ffffff;
+      transition: background-color 0.4s ease;
+      touch-action: manipulation;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    const colors = [
+      "#FF5733", "#33FF57", "#3357FF", "#FF33A8",
+      "#33FFF6", "#FF8F33", "#A833FF", "#33FF8A",
+      "#FFD633", "#33D4FF", "#B833FF", "#FF3333",
+      "#33FFA8", "#FF33E1", "#8AFF33", "#333CFF"
+    ];
 
+    function changeColor() {
+      const randomColor = colors[Math.floor(Math.random() * colors.length)];
+      document.body.style.backgroundColor = randomColor;
+    }
+
+    // For mobile touch
+    document.body.addEventListener("touchstart", changeColor);
+    // Also works with clicks on desktop
+    document.body.addEventListener("click", changeColor);
+  </script>
+</body>
+</html>
